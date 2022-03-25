@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Product\Option\Type\Select">
+        <plugin name="mageworx-optionfeatures-around-get-option-price"
+                type="MageWorx\OptionFeatures\Plugin\AroundGetOptionPrice"
+                sortOrder="10"
+                disabled="true"
+        />
+        <plugin name="mageworx-disablecatalogruleforoptions-around-get-option-price"
+                type="MageWorx\DisableCatalogRuleForOptions\Plugin\AroundGetOptionPrice"
+                sortOrder="10"
+                disabled="false"
+        />
+    </type>
+    <type name="Magento\Catalog\Pricing\Price\CalculateCustomOptionCatalogRule">
+        <plugin name="mageworx-disablecatalogruleforoptions-calculate-option-cataloug-rule"
+                type="MageWorx\DisableCatalogRuleForOptions\Plugin\Pricing\Price\AroundCalculationPriceWithCatalogRule"
+                sortOrder="10"
+                disabled="false"
+        />
+    </type>
+</config>
